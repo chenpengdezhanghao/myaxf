@@ -1,14 +1,58 @@
 {% extends 'base/base_template.html' %}
 {% load static %}
 
-{% block extcss %}
+{% block extbasecss %}
     <link rel="stylesheet" href="{% static 'base/css/base.css' %}">
+    {% block extcss %}
+    {% endblock %}
 {% endblock %}
 
-{% block extjs %}
+{% block extbasejs %}
     <script src="{% static 'base/js/base.js' %}"></script>
+    {% block extjs %}
+    {% endblock %}
 {% endblock %}
 
 {% block body %}
+    {% block header %}
+        <header>爱鲜蜂</header>
+    {% endblock %}
 
+    {#    主体内容#}
+    {% block content %}
+
+    {% endblock %}
+
+    {#    底部内容#}
+    {% block footer %}
+        <footer>
+            <a href="{% url 'app:home' %}" class="home">
+                <dl>
+                    <dt><span></span></dt>
+                    <dd>首页</dd>
+                </dl>
+            </a>
+
+            <a href="#" class="market">
+                <dl>
+                    <dt><span></span></dt>
+                    <dd>闪购超市</dd>
+                </dl>
+            </a>
+
+            <a href="#" class="cart">
+                <dl>
+                    <dt><span></span></dt>
+                    <dd>购物车</dd>
+                </dl>
+            </a>
+
+            <a href="#" class="mine">
+                <dl>
+                    <dt><span></span></dt>
+                    <dd>我的d</dd>
+                </dl>
+            </a>
+        </footer>
+    {% endblock %}
 {% endblock %}
